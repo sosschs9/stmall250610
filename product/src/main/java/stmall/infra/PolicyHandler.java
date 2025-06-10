@@ -25,22 +25,6 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='OrderPlaced'"
-    )
-    public void wheneverOrderPlaced_DecreaseStock(
-        @Payload OrderPlaced orderPlaced
-    ) {
-        OrderPlaced event = orderPlaced;
-        System.out.println(
-            "\n\n##### listener DecreaseStock : " + orderPlaced + "\n\n"
-        );
-
-        // Sample Logic //
-        Inventory.decreaseStock(event);
-    }
-
-    @StreamListener(
-        value = KafkaProcessor.INPUT,
         condition = "headers['type']=='DeliveryCompleted'"
     )
     public void wheneverDeliveryCompleted_DecreaseStock(
