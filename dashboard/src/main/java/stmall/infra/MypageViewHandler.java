@@ -32,7 +32,7 @@ public class MypageViewHandler {
             mypage.setItemId(orderPlaced.getItemId());
             mypage.setQty(orderPlaced.getQty());
             mypage.setAddress(orderPlaced.getAddress());
-            mypage.setOrderStatus(ORDERPLACED);
+            mypage.setOrderStatus("ORDER PLACED");
             // view 레파지 토리에 save
             mypageRepository.save(mypage);
         } catch (Exception e) {
@@ -53,7 +53,7 @@ public class MypageViewHandler {
             );
             for (Mypage mypage : mypageList) {
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
-                mypage.setDeliveryStatus(DELIVERYCOMPLETED);
+                mypage.setDeliveryStatus("DELIVERY COMPLETED");
                 // view 레파지 토리에 save
                 mypageRepository.save(mypage);
             }
@@ -75,7 +75,7 @@ public class MypageViewHandler {
             );
             for (Mypage mypage : mypageList) {
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
-                mypage.setOrderStatus(ORDERCANCELLED);
+                mypage.setOrderStatus("ORDER CANCLED");
                 // view 레파지 토리에 save
                 mypageRepository.save(mypage);
             }
@@ -97,7 +97,7 @@ public class MypageViewHandler {
             );
             for (Mypage mypage : mypageList) {
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
-                mypage.setDeliveryStatus(RETURNED);
+                mypage.setDeliveryStatus("RETURNED");
                 // view 레파지 토리에 save
                 mypageRepository.save(mypage);
             }

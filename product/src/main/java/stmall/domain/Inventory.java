@@ -45,20 +45,17 @@ public class Inventory {
         stockDecreased.publishAfterCommit();
         */
 
-        /** Example 2:  finding and process
-        
+        // Example 2:  finding and process
 
-        repository().findById(deliveryCompleted.get???()).ifPresent(inventory->{
+        repository().findById(deliveryCompleted.getId()).ifPresent(inventory->{
             
-            inventory // do something
+            inventory.setStock(inventory.getStock() - deliveryCompleted.getQty());
             repository().save(inventory);
 
             StockDecreased stockDecreased = new StockDecreased(inventory);
             stockDecreased.publishAfterCommit();
 
          });
-        */
-
     }
 
     //>>> Clean Arch / Port Method
